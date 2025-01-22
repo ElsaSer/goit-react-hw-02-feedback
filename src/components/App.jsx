@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './Feedback/Feedback.Options';
-import { Section } from './Section/SectionStyled';
-import { Wrapper } from './Styled.app';
+import { Section } from './Section/Section';
+import { Wrapper } from './Section/SectionStyled';
+import { Message } from './Styled.app';
 export class App extends Component {
   state = {
     good: 0,
@@ -49,7 +50,7 @@ export class App extends Component {
             />
           </Section>
         ) : (
-          <p>No feedback yet</p>
+          <Message>No feedback yet</Message>
         )}
       </Wrapper>
     );
