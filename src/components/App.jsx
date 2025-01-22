@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { Statistics } from './Statistics';
+import { FeedbackOptions } from './Feedback/FeedbackOptions';
+import { Section } from './Section/Section';
 export class App extends Component {
   state = {
     good: 0,
@@ -31,17 +33,16 @@ export class App extends Component {
 
     return (
       <div>
-        <h1>Please leave feedback</h1>
-        <button onClick={() => this.onHandleClick('good')}>Good</button>
-        <button onClick={() => this.onHandleClick('neutral')}>Neutral</button>
-        <button onClick={() => this.onHandleClick('bad')}>Bad</button>
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={total}
-          positivePercentage={positivePercentage}
-        />
+         <Section title="Please leave feedback">
+          <FeedbackOptions onLeaveFeedback={this.onHandleClick} />
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            positivePercentage={positivePercentage}
+          />
+        </Section>
       </div>
     );
   }
