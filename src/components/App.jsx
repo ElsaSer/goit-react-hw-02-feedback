@@ -35,14 +35,21 @@ export class App extends Component {
       <div>
          <Section title="Please leave feedback">
           <FeedbackOptions onLeaveFeedback={this.onHandleClick} />
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={total}
-            positivePercentage={positivePercentage}
-          />
+          
         </Section>
+        {total > 0 ? (
+          <Section title="Statistics">
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positivePercentage}
+            />
+          </Section>
+        ) : (
+          <p>No feedback yet</p>
+        )}
       </div>
     );
   }
